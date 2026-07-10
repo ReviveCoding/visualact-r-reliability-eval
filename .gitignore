@@ -11,7 +11,7 @@ htmlcov/
 build/
 dist/
 *.egg-info/
-runs/
+/runs/
 external_data/
 models/
 checkpoints/
@@ -35,15 +35,15 @@ build/
 *.egg-info/
 
 # Local data and generated ML outputs
-data/
-datasets/
-outputs/
-ML_Outputs/
-Project_Data/
+/data/
+/datasets/
+/outputs/
+/ML_Outputs/
+/Project_Data/
 .local-run/
 .local_run/
-runs/
-wandb/
+/runs/
+/wandb/
 
 # Model/cache/binary artifacts
 *.pt
