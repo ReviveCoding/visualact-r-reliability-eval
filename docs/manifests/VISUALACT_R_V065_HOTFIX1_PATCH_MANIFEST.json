@@ -1,0 +1,9 @@
+{
+  "base_runtime_version": "0.6.5",
+  "files": {
+    "src/visualact_r/stages.py": "b85178d57550566564cbc67618e2b0d0b7436db480d6fc7f6a1862258a9c02f9",
+    "tests/test_stages.py": "b7d300a50e6bd4f2086205fbf89f296b30af280a7210f719015c0e322a36c76a"
+  },
+  "patch_version": "0.6.5-hotfix1",
+  "purpose": "Fix v0.6.5 detector-miss test contract by separating CEF execution success from development-gate PASS/HOLD status."
+}

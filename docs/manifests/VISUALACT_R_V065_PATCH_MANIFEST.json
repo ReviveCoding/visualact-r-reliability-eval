@@ -1,0 +1,11 @@
+{
+  "files": {
+    "pyproject.toml": "73413f036f3d3089c162e79a3bf55da871acdcdca2891042edd66d7766a69ff3",
+    "src/visualact_r/__init__.py": "95a69ad8d5f1e62bcf89124f8366059b44685bd3f488fe1957b5cb8d53925212",
+    "src/visualact_r/cli.py": "3a4c07b891135d064b6bf5b88faa879e32f450232c5d23051acfa399f5fe41b5",
+    "src/visualact_r/stages.py": "db0386760479910b383622907f8bd3cb261dd75b76dba65d9029fa793eaeeb2e",
+    "tests/test_stages.py": "9470803cd04bb27f33466a55485c31cd7e32996633bd6ea4e99b867d3002ec7c"
+  },
+  "patch_version": "0.6.5",
+  "purpose": "detector miss handling plus miss-only high-resolution retry for VisualAct-R full detector cache and CEF compatibility"
+}

@@ -1,0 +1,13 @@
+{
+  "files": {
+    "PATCH_V064.md": "3f38467064dedad597b6e4486e1872e456e1b98fbf60dda902383ad0e29823c2",
+    "pyproject.toml": "f65a70a0b402ee5c41939ad3393ea5354a9fa5b7b26301572621a55eefd12d48",
+    "src/visualact_r/__init__.py": "924ad87613b6ef4ffa40fd368e1cb31aab05414cef475d742c4b35f5a1550128",
+    "src/visualact_r/cli.py": "09ba5b2dac2961e8ce6cf0be4c788915990cddf4fc731bd0fae512abcd95955e",
+    "src/visualact_r/detector/ultralytics_adapter.py": "9bbb477eda99b3d9705b6a07d63a9867fa3b7d8c916db0acb47d74d6ff084329",
+    "src/visualact_r/stages.py": "61cc66f94d7e45f29a5b36ea3446c4472923d0a7caaff1c1f04c1dd15d747cde",
+    "tests/test_detector.py": "7943f5a34f898d8826052aec40c4c07046cbca4d740232c0c7491e0f297cb5f1",
+    "tests/test_stages.py": "b056bd751b14e877ecd5ea53714981f553c4818773066684fe41489cd9c30b67"
+  },
+  "patch_version": "0.6.4"
+}

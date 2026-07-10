@@ -1,0 +1,39 @@
+{
+  "config_hash": "df66c6ea2a154b9c4ea0a700938472cc9f67adb0ab00a837918f988e30fb66c9",
+  "detector_miss_excluded_count": 0,
+  "detector_misses_path": "C:\\Users\\bjw-0\\ML_Outputs\\Apple01_visualact-r\\detector-cache-full-v0.6.5-yolo11n-conf0001-img960-retry1280-no-postnms-20260709T132420\\detector-cache\\detector_misses.jsonl",
+  "dev_record_count": 833,
+  "development_gate": {
+    "cef_critical_evidence_recall": 1.0,
+    "cef_enabled": false,
+    "cef_evidence_contamination": 0.0,
+    "contamination_delta_pp": 0.0,
+    "n_dev": 833,
+    "nms_critical_evidence_recall": 1.0,
+    "nms_evidence_contamination": 0.0,
+    "reason": "development_only_coverage_contamination_gate",
+    "recall_gain_pp": 0.0,
+    "status": "HOLD"
+  },
+  "directional_corrector_models": 0,
+  "pre_nms_cache_validation": {
+    "candidate_coverage_rate": 1.0,
+    "candidate_covered_count": 15000,
+    "contract": "raw entries must be pre_nms=true; selected NMS entries must be pre_nms=false; image coverage may exclude explicitly recorded detector misses",
+    "detector_miss_count": 0,
+    "invalid_image_ids": [],
+    "missing_image_ids": [],
+    "nms_candidate_count": 2154855,
+    "raw_candidate_count": 9177614,
+    "raw_candidate_extraction_validated": true,
+    "record_count": 15000,
+    "status": "PASS",
+    "unexpected_detector_miss_image_ids": []
+  },
+  "ranker_mode": "constant_fallback",
+  "raw_ranker_mode": "constant_fallback",
+  "stage_execution_status": "PASS",
+  "status": "HOLD",
+  "train_record_count": 3611,
+  "usable_record_count": 15000
+}

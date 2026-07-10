@@ -1,0 +1,2 @@
+recursive-include src/visualact_r/resources *.yaml
+include docs/LOCAL_FIRST_BDD_QLORA_PROTOCOL.md

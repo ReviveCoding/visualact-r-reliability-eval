@@ -1,0 +1,11 @@
+{
+  "files": {
+    "PATCH_V061.md": "a2ff9279e6dc2a75499744a081f7d0c403df7c88482f2581b8058ed5823e15b8",
+    "pyproject.toml": "a3cb40aa41eabbf04d887b2a4d36763039eb30461bbc9fbc324461028abf8610",
+    "src/visualact_r/__init__.py": "4bc31e0b604f7933cb042cffe3acb12395ee60e7a6fdf284b0ec9c879faf7938",
+    "src/visualact_r/cli.py": "28838d32fbc42eced29bc39d8bb454b069de21ec227ab84088e7ddbc7f1f775c",
+    "src/visualact_r/data/bdd_direct.py": "b82622b0f1874d02d8c3fe087db242b7685b466bc79fdbbc408488ae4db2497f",
+    "tests/test_bdd_direct.py": "88ac649a7d4631b9449bdea100ce854bb0c44001863109d1c99b437a5217706b"
+  },
+  "patch_version": "0.6.1"
+}

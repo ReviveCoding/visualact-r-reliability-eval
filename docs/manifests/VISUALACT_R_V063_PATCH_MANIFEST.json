@@ -1,0 +1,12 @@
+{
+  "files": {
+    "PATCH_V063.md": "3deb2be21237d52b132e3fabe9777e573968015e186ea47b2385cbe105189673",
+    "pyproject.toml": "3f8729d088a6c04ae03c205c9050e0b4b997c39ac9f85846400d9adfd4251941",
+    "src/visualact_r/__init__.py": "35ebcc62f97d9fb981af25ea5c5e78678a4edf6b47e68c286ffd31df492a0bcf",
+    "src/visualact_r/cli.py": "a5d141ac0ec0fde2a5eb5871cc7fd5b81d9e73fda250d37f3887a42a6e7c6af2",
+    "src/visualact_r/data/bdd_direct.py": "d8504f9ab4b042d13324b2726f0e58b34cdb632235060fc9baea567d40e65a19",
+    "tests/test_bdd_direct.py": "10fd36d93ca3f3a59157852a9e33262784ebe980de9d629c2ca3816cf4005663"
+  },
+  "patch_version": "0.6.3",
+  "purpose": "CUDA/vectorized pHash comparison backend plus progress manifest for direct BDD build"
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "visualact-r-phase-a-artifact-manifest-v1",
+  "phase_a_version": "0.5.6",
+  "project_version_source": "repository pyproject.toml at runtime",
+  "files": [
+    {
+      "name": "README.md",
+      "sha256": "b553e1eb132d4b0e0257a293e3e1f2d5f9e8cc44c4bcd726a5a29d0c29f1ff8a",
+      "bytes": 1706
+    },
+    {
+      "name": "run_visualact_phase_a.ps1",
+      "sha256": "6e170f7a1eca2880625c78864bd5d0261c305c57ad20a632b71ea1635956ada9",
+      "bytes": 24760
+    },
+    {
+      "name": "Start-VisualActR-PhaseA.ps1",
+      "sha256": "9478e7b4f8da4624e30141e71283af40b4af0255cd57c7245c0b3e884d15944f",
+      "bytes": 3277
+    },
+    {
+      "name": "Verify-VisualActR-PhaseA.ps1",
+      "sha256": "6823254ca9fadfbb8a321a3bab1968338dda11880895ce49323de416873e1e51",
+      "bytes": 1545
+    }
+  ]
+}

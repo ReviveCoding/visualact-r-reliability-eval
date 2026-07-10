@@ -1,0 +1,116 @@
+{
+  "candidate_portfolio": [
+    {
+      "algorithm": "detector-zone heuristic",
+      "candidate_id": "C0",
+      "status": "fixture_executed",
+      "type": "sanity"
+    },
+    {
+      "algorithm": "calibrated logistic detector triage",
+      "candidate_id": "C1",
+      "status": "fixture_executed",
+      "type": "industry"
+    },
+    {
+      "algorithm": "Qwen3-VL 4-bit QLoRA training and bounded rollout interface",
+      "candidate_id": "C2/C3/C5",
+      "status": "implemented_not_gpu_executed",
+      "type": "advanced"
+    },
+    {
+      "algorithm": "learned raw-candidate crop selector",
+      "candidate_id": "C4",
+      "status": "fixture_executed",
+      "type": "specialty_ablation"
+    },
+    {
+      "algorithm": "ABC-derived CEF",
+      "candidate_id": "C5",
+      "status": "fixture_executed",
+      "type": "specialty"
+    },
+    {
+      "algorithm": "CEF + matched-capacity RCTR review gate",
+      "candidate_id": "C6",
+      "status": "fixture_executed_with_controlled_routing_contract",
+      "type": "production"
+    }
+  ],
+  "champion_selection": {
+    "predictive_champion": null,
+    "production_champion": null,
+    "selection_criteria": [
+      "sealed C3/C5 frozen-final comparison",
+      "paired bootstrap minimum sample requirement",
+      "matched-capacity C5 confidence guard versus C6 RCTR"
+    ],
+    "tradeoffs": []
+  },
+  "claim_boundary": "Fixture artifacts validate the repository contract only. QLoRA and BDD-derived claims require separate completed local runs.",
+  "created_at_utc": "2026-06-26T18:55:14.576263+00:00",
+  "experiment_lineage": {
+    "config_hash": "df66c6ea2a154b9c4ea0a700938472cc9f67adb0ab00a837918f988e30fb66c9",
+    "source_preflight": {},
+    "source_preflight_status": "PASS"
+  },
+  "outputs": {
+    "api_or_cli_examples": [
+      "visualact-r fixture-run",
+      "visualact-r preflight",
+      "visualact-r rollout-qwen",
+      "visualact-r route-review",
+      "visualact-r compare-final"
+    ],
+    "cards": [
+      "docs/MODEL_CARD.md",
+      "docs/DATA_CARD.md"
+    ],
+    "numeric": [
+      "metrics.json",
+      "candidate_comparison.csv",
+      "slice_metrics.csv",
+      "decision_scenarios.csv"
+    ],
+    "reports": [
+      "report.md",
+      "report.html",
+      "docs/CI_RUNTIME_HARDENING.md"
+    ],
+    "visualizations": [
+      "figures/*.png",
+      "figures/*.svg"
+    ]
+  },
+  "project_depth": {
+    "advanced_technique_complete": true,
+    "foundation_complete": true,
+    "industry_baseline_complete": true,
+    "product_layer_complete": true,
+    "specialty_module_complete": true
+  },
+  "project_id": "visualact-r",
+  "project_version": "0.5.2",
+  "schema_version": "1.1",
+  "specialty_transfer": [
+    {
+      "adaptation_type": "domain_extension",
+      "adapted_name": "Critical Evidence Field",
+      "implementation_path": "src/visualact_r/cef/core.py",
+      "limitations": [
+        "fixture metrics are not BDD/VLM claims"
+      ],
+      "source_method": "ABC/Probability Bbox"
+    },
+    {
+      "adaptation_type": "derived",
+      "adapted_name": "RCTR",
+      "implementation_path": "src/visualact_r/rctr/core.py",
+      "limitations": [
+        "requires real trace validation before claims"
+      ],
+      "source_method": "PHT reference-state alignment"
+    }
+  ],
+  "validation_scope": "v0.5.2 pre-execution CPU/package contract: static checks, 41 tests, actual BDD archive preflight, source fixture, wheel/sdist installed-package fixture and provenance smoke; PowerShell wrapper exit propagation added; fresh Windows Python 3.11, GPU, Windows host, and hosted CI pending"
+}
