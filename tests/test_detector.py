@@ -1,4 +1,6 @@
 from visualact_r.detector.synthetic import SyntheticColorDetector
+from visualact_r.detector.ultralytics_adapter import UltralyticsRawCandidateAdapter
+from visualact_r.schemas import Box, DetectionCandidate
 
 
 def test_detector_exposes_raw_and_nms(records):
@@ -9,9 +11,6 @@ def test_detector_exposes_raw_and_nms(records):
     assert all(x.pre_nms for x in raw)
     assert all(not x.pre_nms for x in nms)
     assert all(x.nms_cluster_id for x in raw)
-
-from visualact_r.detector.ultralytics_adapter import UltralyticsRawCandidateAdapter
-from visualact_r.schemas import Box, DetectionCandidate
 
 
 def test_ultralytics_adapter_post_nms_fallback_is_explicit(records):

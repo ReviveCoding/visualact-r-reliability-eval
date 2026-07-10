@@ -228,7 +228,9 @@ def test_cuda_phash_backend_matches_cpu_when_cuda_is_available(tmp_path: Path) -
         phash_compare_backend="cuda",
         phash_chunk_size=2,
     )
-    assert cpu["cross_partition_phash"]["match_count"] == cuda["cross_partition_phash"]["match_count"]
+    assert (
+        cpu["cross_partition_phash"]["match_count"] == cuda["cross_partition_phash"]["match_count"]
+    )
     assert cpu["cross_partition_phash"]["examples"] == cuda["cross_partition_phash"]["examples"]
     assert cuda["cross_partition_phash"]["compare_backend_used"] == "cuda"
     assert cuda["cross_partition_phash"]["cuda"]["cuda_peak_memory_reserved_bytes"] >= 0

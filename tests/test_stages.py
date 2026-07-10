@@ -2,6 +2,7 @@ from visualact_r.detector.ultralytics_adapter import RawCandidateExtractionUnsup
 from visualact_r.schemas import Box, DetectionCandidate
 from visualact_r.utils import read_jsonl
 from visualact_r.stages import build_data_stage, cache_detector_stage, train_cef_stage
+from visualact_r.detector.ultralytics_adapter import UltralyticsRawCandidateAdapter
 
 
 def test_stage_commands_are_callable(tmp_path, fixture_source):
@@ -19,8 +20,6 @@ def test_stage_commands_are_callable(tmp_path, fixture_source):
         str(tmp_path / "cef"),
     )
     assert cef["status"] == "PASS"
-
-from visualact_r.detector.ultralytics_adapter import UltralyticsRawCandidateAdapter
 
 
 def test_cache_detector_writes_failure_report(tmp_path, fixture_source, monkeypatch):

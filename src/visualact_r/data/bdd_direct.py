@@ -565,6 +565,7 @@ def _cross_partition_phash_audit(
         "contract": "No pHash near-duplicate may cross BDD train-derived development and BDD val frozen-final by default.",
     }
 
+
 def _frozen_final_records(records: list[TaskRecord]) -> list[TaskRecord]:
     """Assign unique final-only cluster ids so source validation cannot share a development cluster id."""
     return [

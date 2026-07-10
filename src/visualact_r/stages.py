@@ -199,7 +199,7 @@ def cache_detector_stage(
             if getattr(detector, "last_used_post_nms_fallback", False):
                 post_nms_fallback_image_ids.append(record.image_id)
         except RawCandidateExtractionUnsupported as exc:
-            miss = {
+            miss: dict[str, Any] = {
                 "image_id": record.image_id,
                 "image_path": record.image_path,
                 "error_type": type(exc).__name__,
