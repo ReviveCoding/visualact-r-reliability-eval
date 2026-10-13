@@ -1,6 +1,6 @@
 # VisualAct-R v0.6.0
 
-## v0.6.0 local-first BDD and QLoRA gate
+## BDD100K adapter and evaluation split
 
 - Adds a direct adapter for the already-extracted `Images/{train,val}` and `Labels/{train,val}` BDD layout.
 - Enforces `BDD train → train/dev/calibration` and `BDD val → frozen final` without archive-mode extraction.
@@ -8,11 +8,11 @@
 - See [the local-first protocol](docs/LOCAL_FIRST_BDD_QLORA_PROTOCOL.md).
 
 
-## v0.5.3 Windows filename portability patch
+## Windows artifact portability
 
 SFT crop artifact filenames now sanitize both image and crop provenance identifiers for Windows-compatible output paths. The patch preserves deterministic identity with stable suffixes, rejects unsupported output suffixes in favor of PNG, and adds a regression test for colon-delimited crop identifiers.
 
-**VisualAct-R** is an offline, BDD100K-derived urban-scene review research framework. It evaluates whether a visual assessment can be `AUTO_CLEAR`ed, should go to `REVIEW`, or must `ESCALATE` to human review. It is **not** a vehicle-control system, collision predictor, safety certification, official BDD100K leaderboard submission, or production deployment.
+VisualAct-R is an offline, BDD100K-derived urban-scene review research framework. It evaluates whether a visual assessment can be `AUTO_CLEAR`ed, should go to `REVIEW`, or must `ESCALATE` to human review. It is **not** a vehicle-control system, collision predictor, safety certification, official BDD100K leaderboard submission, or production deployment.
 
 ## What is being tested
 
