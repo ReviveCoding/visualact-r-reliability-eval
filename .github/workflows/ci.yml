@@ -28,10 +28,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           persist-credentials: false
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: "3.11"
           cache: pip
@@ -69,7 +69,7 @@ jobs:
           python -m visualact_r runtime-provenance --source-root "$GITHUB_WORKSPACE" --output runs/sdist_runtime_provenance.json
           visualact-r fixture-run --output runs/sdist_fixture
           visualact-r qualify --run-dir runs/sdist_fixture
-      - uses: actions/upload-artifact@v7
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         if: always()
         with:
           name: linux-validation-artifacts
@@ -88,10 +88,10 @@ jobs:
     runs-on: windows-latest
     timeout-minutes: 25
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           persist-credentials: false
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: "3.11"
           cache: pip
@@ -137,7 +137,7 @@ jobs:
           & .sdist-venv\Scripts\python.exe -m visualact_r runtime-provenance --source-root $env:GITHUB_WORKSPACE --output runs/sdist_runtime_provenance.json
           & .sdist-venv\Scripts\visualact-r.exe fixture-run --output runs/sdist_fixture_windows
           & .sdist-venv\Scripts\visualact-r.exe qualify --run-dir runs/sdist_fixture_windows
-      - uses: actions/upload-artifact@v7
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         if: always()
         with:
           name: windows-validation-artifacts
