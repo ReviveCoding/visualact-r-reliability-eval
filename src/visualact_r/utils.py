@@ -7,7 +7,7 @@ import random
 import tempfile
 from collections.abc import Iterable
 from dataclasses import asdict, is_dataclass
-from datetime import UTC, datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, cast
 
