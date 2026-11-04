@@ -15,12 +15,13 @@ splitter. The resulting inference artifact remains label-free by construction.
 
 from __future__ import annotations
 
-from collections import Counter
-from dataclasses import replace
 import json
-from pathlib import Path
 import time
-from typing import Any, Iterable, Literal
+from collections import Counter
+from collections.abc import Iterable
+from dataclasses import replace
+from pathlib import Path
+from typing import Any, Literal
 
 from PIL import Image
 
@@ -416,7 +417,7 @@ def _cross_partition_phash_audit_cpu_bktree(
     development_records: list[TaskRecord], final_records: list[TaskRecord], threshold: int
 ) -> tuple[int, list[dict[str, Any]]]:
     """CPU Hamming-radius search using the same BK-tree primitive as split clustering."""
-    from visualact_r.data.splits import _BKNode, _bk_insert, _bk_query
+    from visualact_r.data.splits import _bk_insert, _bk_query, _BKNode
 
     root: _BKNode | None = None
     final_hashes = [int(record.phash, 16) for record in final_records]

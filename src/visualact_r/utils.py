@@ -5,17 +5,18 @@ import json
 import os
 import random
 import tempfile
+from collections.abc import Iterable
 from dataclasses import asdict, is_dataclass
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Iterable, cast
+from typing import Any, cast
 
 import numpy as np
 import yaml
 
 
 def utc_now() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 def ensure_dir(path: str | Path) -> Path:

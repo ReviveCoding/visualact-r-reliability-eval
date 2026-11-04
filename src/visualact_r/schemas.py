@@ -30,7 +30,7 @@ class Box:
     def center(self) -> tuple[float, float]:
         return ((self.x1 + self.x2) / 2.0, (self.y1 + self.y2) / 2.0)
 
-    def clamp(self, width: float, height: float) -> "Box":
+    def clamp(self, width: float, height: float) -> Box:
         x1 = min(max(self.x1, 0.0), width)
         y1 = min(max(self.y1, 0.0), height)
         x2 = min(max(self.x2, x1), width)
@@ -41,7 +41,7 @@ class Box:
         return {"x1": self.x1, "y1": self.y1, "x2": self.x2, "y2": self.y2}
 
     @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "Box":
+    def from_dict(cls, payload: dict[str, Any]) -> Box:
         if "box_xyxy" in payload:
             payload = payload["box_xyxy"]
         return cls(
@@ -108,7 +108,7 @@ class GroundTruthObject:
         return out
 
     @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "GroundTruthObject":
+    def from_dict(cls, payload: dict[str, Any]) -> GroundTruthObject:
         return cls(
             object_id=str(payload["object_id"]),
             category=str(payload["category"]),
@@ -145,7 +145,7 @@ class TaskRecord:
         return out
 
     @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "TaskRecord":
+    def from_dict(cls, payload: dict[str, Any]) -> TaskRecord:
         values = dict(payload)
         values["gt_objects"] = [
             GroundTruthObject.from_dict(x) for x in payload.get("gt_objects", [])
@@ -181,14 +181,14 @@ class InferenceRecord:
     label_policy_version: str
 
     @classmethod
-    def from_task_record(cls, record: TaskRecord) -> "InferenceRecord":
+    def from_task_record(cls, record: TaskRecord) -> InferenceRecord:
         return cls(**record.inference_contract())
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
 
     @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "InferenceRecord":
+    def from_dict(cls, payload: dict[str, Any]) -> InferenceRecord:
         keys = {
             "image_id",
             "image_path",
@@ -223,7 +223,7 @@ class DetectionCandidate:
         return out
 
     @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "DetectionCandidate":
+    def from_dict(cls, payload: dict[str, Any]) -> DetectionCandidate:
         values = dict(payload)
         values["box_xyxy"] = Box.from_dict(payload)
         return cls(**values)
@@ -252,7 +252,7 @@ class CropRecord:
         return out
 
     @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "CropRecord":
+    def from_dict(cls, payload: dict[str, Any]) -> CropRecord:
         values = dict(payload)
         values.pop("candidate_id", None)
         values["box_xyxy"] = Box.from_dict(payload)
@@ -274,7 +274,7 @@ class AgentStep:
         return asdict(self)
 
     @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "AgentStep":
+    def from_dict(cls, payload: dict[str, Any]) -> AgentStep:
         return cls(**payload)
 
 
@@ -304,7 +304,7 @@ class AgentTrace:
         return out
 
     @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "AgentTrace":
+    def from_dict(cls, payload: dict[str, Any]) -> AgentTrace:
         values = dict(payload)
         values["steps"] = [AgentStep.from_dict(x) for x in payload.get("steps", [])]
         values.setdefault("final_evidence_ids", [])

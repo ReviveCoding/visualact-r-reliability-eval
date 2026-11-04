@@ -22,8 +22,8 @@ from visualact_r.evaluation.metrics import (
 from visualact_r.evaluation.release import release_decision
 from visualact_r.rctr.core import apply_review_routes, fit_rctr, select_review_routes
 from visualact_r.reporting import generate_reports
-from visualact_r.stages import write_project_creation_handoff
 from visualact_r.schemas import AgentStep, AgentTrace, CropRecord, TaskRecord, intersection_box
+from visualact_r.stages import write_project_creation_handoff
 from visualact_r.utils import (
     ensure_dir,
     seed_everything,

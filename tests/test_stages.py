@@ -1,8 +1,10 @@
-from visualact_r.detector.ultralytics_adapter import RawCandidateExtractionUnsupported
+from visualact_r.detector.ultralytics_adapter import (
+    RawCandidateExtractionUnsupported,
+    UltralyticsRawCandidateAdapter,
+)
 from visualact_r.schemas import Box, DetectionCandidate
-from visualact_r.utils import read_jsonl
 from visualact_r.stages import build_data_stage, cache_detector_stage, train_cef_stage
-from visualact_r.detector.ultralytics_adapter import UltralyticsRawCandidateAdapter
+from visualact_r.utils import read_jsonl
 
 
 def test_stage_commands_are_callable(tmp_path, fixture_source):

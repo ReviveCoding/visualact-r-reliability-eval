@@ -12,7 +12,6 @@ from sklearn.preprocessing import StandardScaler
 
 from visualact_r.data.task_policy import normalized_center, point_in_polygon
 from visualact_r.detector.base import candidates_by_cluster
-from visualact_r.utils import atomic_write_bytes
 from visualact_r.schemas import (
     Box,
     CropRecord,
@@ -23,6 +22,7 @@ from visualact_r.schemas import (
     intersection_box,
     rectangle_union_area,
 )
+from visualact_r.utils import atomic_write_bytes
 
 
 def _weighted_quantile(values: list[float], weights: list[float], quantile: float) -> float:
@@ -143,7 +143,7 @@ class DirectionalBiasCorrector:
         rows: list[tuple[np.ndarray, np.ndarray]],
         max_correction_fraction: float,
         shrinkage: float,
-    ) -> "DirectionalBiasCorrector":
+    ) -> DirectionalBiasCorrector:
         if len(rows) < 4:
             return cls(
                 models=[], max_correction_fraction=max_correction_fraction, shrinkage=shrinkage
@@ -181,7 +181,7 @@ class CropRanker:
     model: Any | None = None
     constant: float | None = None
 
-    def fit(self, x: list[np.ndarray], y: list[int]) -> "CropRanker":
+    def fit(self, x: list[np.ndarray], y: list[int]) -> CropRanker:
         if not x or len(set(y)) < 2:
             self.constant = float(y[0]) if y else 0.0
             return self
@@ -213,7 +213,7 @@ class CEFModel:
         atomic_write_bytes(path, pickle.dumps(self, protocol=pickle.HIGHEST_PROTOCOL))
 
     @classmethod
-    def load(cls, path: str | Path) -> "CEFModel":
+    def load(cls, path: str | Path) -> CEFModel:
         with Path(path).open("rb") as handle:
             return pickle.load(handle)
 

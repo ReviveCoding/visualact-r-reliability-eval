@@ -1,4 +1,5 @@
 import pytest
+
 from visualact_r.agents.core import parse_typed_output
 
 

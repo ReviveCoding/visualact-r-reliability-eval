@@ -309,19 +309,21 @@ def slice_metrics(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
 def review_capacity_scenarios(
     rows: list[dict[str, Any]],
     risk_by_image: dict[str, float],
-    capacities: list[float] = [0.15, 0.20, 0.30],
+    capacities: list[float] | None = None,
 ) -> list[dict[str, Any]]:
     """Evaluate routing from the pre-route AUTO_CLEAR set at a fixed total review capacity."""
+    if capacities is None:
+        capacities = [0.15, 0.20, 0.30]
+    eligible = [row for row in rows if row["pre_route_decision"] == "AUTO_CLEAR"]
+    ordered = sorted(
+        eligible, key=lambda row: (-risk_by_image.get(row["image_id"], 0.0), row["image_id"])
+    )
+    unsafe_total = sum(int(row["would_false_auto_clear"]) for row in eligible)
     output: list[dict[str, Any]] = []
     for capacity in capacities:
-        eligible = [row for row in rows if row["pre_route_decision"] == "AUTO_CLEAR"]
         k = min(len(eligible), int(np.ceil(len(rows) * capacity)))
-        ordered = sorted(
-            eligible, key=lambda row: (-risk_by_image.get(row["image_id"], 0.0), row["image_id"])
-        )
         routed = {row["image_id"] for row in ordered[:k]}
         remaining_eligible = [row for row in eligible if row["image_id"] not in routed]
-        unsafe_total = sum(int(row["would_false_auto_clear"]) for row in eligible)
         unsafe_routed = sum(int(row["would_false_auto_clear"]) for row in ordered[:k])
         output.append(
             {

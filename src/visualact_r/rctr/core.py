@@ -9,9 +9,8 @@ import numpy as np
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
 
-from visualact_r.utils import atomic_write_bytes
 from visualact_r.schemas import AgentStep, AgentTrace, CropRecord, TaskRecord
-
+from visualact_r.utils import atomic_write_bytes
 
 PREFIX_FEATURE_NAMES = [
     "prefix_step_count",
@@ -160,7 +159,7 @@ class RCTRModel:
         atomic_write_bytes(path, pickle.dumps(self, protocol=pickle.HIGHEST_PROTOCOL))
 
     @classmethod
-    def load(cls, path: str | Path) -> "RCTRModel":
+    def load(cls, path: str | Path) -> RCTRModel:
         with Path(path).open("rb") as handle:
             return pickle.load(handle)
 
