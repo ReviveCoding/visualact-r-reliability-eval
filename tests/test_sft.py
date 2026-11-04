@@ -2,8 +2,8 @@ from pathlib import Path
 
 import pytest
 
-from visualact_r.cef.core import fit_cef, make_crops
 from visualact_r.agents.sft import build_sft_examples, load_sft_examples
+from visualact_r.cef.core import fit_cef, make_crops
 from visualact_r.detector.synthetic import SyntheticColorDetector
 
 

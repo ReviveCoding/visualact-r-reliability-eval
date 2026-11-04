@@ -12,7 +12,7 @@ from visualact_r.utils import stable_hash, write_json, write_jsonl
 class _BKNode:
     value: int
     record_idx: int
-    children: dict[int, "_BKNode"] = field(default_factory=dict)
+    children: dict[int, _BKNode] = field(default_factory=dict)
 
 
 def _hamming_int(left: int, right: int) -> int:
@@ -215,7 +215,7 @@ def validate_split_integrity(
             cluster_overlap += 1
         seen_images[record.image_id] = record.split
         seen_clusters[record.phash_cluster_id] = record.split
-    targets = _target_counts(len(records), config) if config else {split: 1 for split in SPLITS}
+    targets = _target_counts(len(records), config) if config else dict.fromkeys(SPLITS, 1)
     requirements = (
         _coverage_requirements(records, targets, config)
         if config

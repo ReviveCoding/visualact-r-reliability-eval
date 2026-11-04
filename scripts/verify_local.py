@@ -16,7 +16,6 @@ import subprocess
 import sys
 from pathlib import Path
 
-
 _EXCLUDED_COPY_NAMES = {
     ".git",
     ".venv",

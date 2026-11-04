@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
 import inspect
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
@@ -172,8 +172,8 @@ def build_qlora_model(config: QwenVLMConfig) -> tuple[Any, Any]:
     try:
         import torch
         import transformers
-        from transformers import AutoProcessor, BitsAndBytesConfig
         from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
+        from transformers import AutoProcessor, BitsAndBytesConfig
     except ImportError as exc:
         raise RuntimeError("Install visualact-r[gpu] for QLoRA") from exc
     if not torch.cuda.is_available():

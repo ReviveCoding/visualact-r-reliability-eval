@@ -1,9 +1,10 @@
 from __future__ import annotations
 
-from pathlib import Path
 import time
+from pathlib import Path
 from typing import Any, cast
 
+from visualact_r import __version__
 from visualact_r.agents.core import MockVisualAgent
 from visualact_r.agents.qwen_adapter import (
     QwenVLMAdapter,
@@ -11,7 +12,7 @@ from visualact_r.agents.qwen_adapter import (
     build_qlora_model,
     run_qlora_sft,
 )
-from visualact_r import __version__
+from visualact_r.agents.sft import materialize_crop, prepare_sft_stage
 from visualact_r.artifacts import (
     load_candidate_cache,
     load_crops,
@@ -26,7 +27,6 @@ from visualact_r.artifacts import (
 from visualact_r.cef.core import evaluate_development_gate, fit_cef, make_crops
 from visualact_r.config import load_config
 from visualact_r.data.build import build_task_records
-from visualact_r.agents.sft import materialize_crop, prepare_sft_stage
 from visualact_r.data.splits import build_splits, validate_split_integrity
 from visualact_r.detector.synthetic import SyntheticColorDetector
 from visualact_r.detector.ultralytics_adapter import (
@@ -52,13 +52,13 @@ from visualact_r.schemas import (
 from visualact_r.utils import (
     ensure_dir,
     read_json,
+    read_jsonl,
     sha256_directory,
     sha256_file,
     stable_hash,
     utc_now,
     write_json,
     write_jsonl,
-    read_jsonl,
     write_table,
 )
 

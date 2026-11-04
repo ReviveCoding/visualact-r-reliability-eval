@@ -5,15 +5,15 @@ import os
 import sys
 from pathlib import Path
 
+from visualact_r.agents.feasibility import LocalQLoRAFeasibilityConfig, run_local_qlora_feasibility
 from visualact_r.config import config_template_names, load_config, write_config_template
-from visualact_r.data.preflight import preflight_external_bdd
-from visualact_r.data.extract import extract_bdd_assets
 from visualact_r.data.bdd_direct import (
     BDDDirectLayoutError,
     build_direct_bdd_records,
     inspect_extracted_bdd_layout,
 )
-from visualact_r.agents.feasibility import LocalQLoRAFeasibilityConfig, run_local_qlora_feasibility
+from visualact_r.data.extract import extract_bdd_assets
+from visualact_r.data.preflight import preflight_external_bdd
 from visualact_r.pipeline import run_fixture_pipeline
 from visualact_r.provenance import assert_installed_distribution
 from visualact_r.stages import (
@@ -21,9 +21,9 @@ from visualact_r.stages import (
     cache_detector_stage,
     compare_final_stage,
     evaluate_stage,
+    prepare_sft_dataset_stage,
     qwen_training_preflight_stage,
     qwen_training_stage,
-    prepare_sft_dataset_stage,
     rollout_mock_stage,
     rollout_qwen_stage,
     route_review_stage,

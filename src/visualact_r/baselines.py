@@ -10,8 +10,8 @@ from sklearn.calibration import CalibratedClassifierCV
 from sklearn.linear_model import LogisticRegression
 
 from visualact_r.data.task_policy import normalized_center, point_in_polygon
-from visualact_r.utils import atomic_write_bytes
 from visualact_r.schemas import Action, DetectionCandidate, TaskRecord
+from visualact_r.utils import atomic_write_bytes
 
 ACTIONS: list[Action] = ["AUTO_CLEAR", "REVIEW", "ESCALATE"]
 ACTION_TO_INDEX = {x: i for i, x in enumerate(ACTIONS)}
@@ -71,7 +71,7 @@ class CalibratedDetectorTriage:
         records: list[TaskRecord],
         nms_by_id: dict[str, list[DetectionCandidate]],
         config: dict[str, Any],
-    ) -> "CalibratedDetectorTriage":
+    ) -> CalibratedDetectorTriage:
         x = np.stack(
             [detector_features(record, nms_by_id[record.image_id], config) for record in records]
         )
@@ -100,6 +100,6 @@ class CalibratedDetectorTriage:
         atomic_write_bytes(path, pickle.dumps(self, protocol=pickle.HIGHEST_PROTOCOL))
 
     @classmethod
-    def load(cls, path: str | Path) -> "CalibratedDetectorTriage":
+    def load(cls, path: str | Path) -> CalibratedDetectorTriage:
         with Path(path).open("rb") as handle:
             return pickle.load(handle)
